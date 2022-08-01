@@ -7,11 +7,11 @@ import 'package:meetings_webster/widget/home_meeting_button.dart';
 class MeetingScreen extends StatelessWidget {
   MeetingScreen({Key? key}) : super(key: key);
  final JitsiJoin _jitsiJoin =JitsiJoin();
-
+AuthMethods _authMethods =AuthMethods();
  createNewMeeting()async{
   var random =Random();
   String room =(random.nextInt(10000000)+10000000).toString();
-  _jitsiJoin.joinMeeting(room: room, isAudioOn: false, isVideoOn: false);
+  _jitsiJoin.joinMeeting(room: room, isAudioOn: false, isVideoOn: false, userName: _authMethods.user.displayName!;
  }
 
  joinMeeting(BuildContext context){
