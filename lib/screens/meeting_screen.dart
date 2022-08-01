@@ -21,10 +21,11 @@ AuthMethods _authMethods =AuthMethods();
   @override
   Widget build(BuildContext context) {
     return Column(
+         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
+     
+        
+        
           
           HomeMeetingButton(onPressed: (){
             createNewMeeting();
@@ -36,8 +37,8 @@ AuthMethods _authMethods =AuthMethods();
            
           HomeMeetingButton(onPressed: (){},text: 'Share Screen',icon: Icons.arrow_upward_rounded),
 
-        ],
-      ),
+        
+      
       Expanded(child: Center(child: Text("Create or Join Meetings",style: const TextStyle(fontSize: 18,color: Colors.grey),),))
 
     ],
