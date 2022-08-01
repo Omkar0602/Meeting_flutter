@@ -4,17 +4,14 @@ import 'package:meetings_webster/resources/auth_methods.dart';
 import 'package:meetings_webster/resources/firestore_methods.dart';
 
 class JitsiJoin{
-  joinMeeting({required String room,required bool isAudioOn,required bool isVideoOn,String userName=''}) async {
+  joinMeeting({required String room,required bool isAudioOn,required bool isVideoOn,required String userName}) async {
     
     AuthMethods _authMethods =AuthMethods();
     final FirestoreMethods _firestore =FirestoreMethods();
     Map<FeatureFlag, Object> featureFlags = {};
 
     // Define meetings options here
-    String name;
-    if(userName.isEmpty){
-   name=_authMethods.user.displayName!;
-    }
+    
     
     name=userName;
     _firestore.addToMeetingHistory(room);
@@ -25,7 +22,7 @@ class JitsiJoin{
       isAudioMuted: isAudioOn,
       
       isVideoMuted: isVideoOn,
-      userDisplayName: name,
+      userDisplayName: userName,
       userEmail: _authMethods.user.email,
       featureFlags: featureFlags,
       
